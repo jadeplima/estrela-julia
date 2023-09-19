@@ -1,0 +1,164 @@
+:root{
+    --tamanho0: .2em;  
+    --tamanho1: .3em;
+    --tamanho2: .4em;  
+    --tamanho3: .5em;
+    --tamanho4: .6em;  
+    --tamanho5: .7em;
+    --tamanho6: 1em;
+    --tamanhoEC: 18em;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-size: 10px;
+}
+
+.ceu{
+    background: linear-gradient(180deg, rgba(0,1,6,1) 0%, rgba(0,21,36,1) 98%);
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.estrela,
+.estrela-cadente{
+    position: absolute;
+}
+
+.estrela--reluzindo{
+    animation: reluzindo 3s ease-in-out .5s infinite alternate both;
+}
+
+.estrela__principal{
+    background-color: #FFF;
+    border-radius: 50%;
+    clip-path: polygon(51% 0, 60% 35%, 98% 35%, 65% 51%, 79% 91%, 52% 64%, 21% 91%, 39% 52%, 2% 35%, 43% 35%);
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+.estrela-cadente{
+    animation: caindo 9s ease-in 5s infinite backwards;
+    height: var(--tamanhoEC);
+    right: -50%;
+    top: 0%;
+    width: var(--tamanhoEC);
+}
+
+.estrela-cadente__principal{
+    background: linear-gradient(to left, rgba(255,255,255,0) 0%, #FFF 100%);
+    clip-path: polygon(0 0, 50% 50%, 100% 0, 100% 100%);
+    height: 9%;
+    transform: rotate(-13deg);
+    width: 100%;
+}
+
+.lua{
+    border-radius: 50%;
+    box-shadow: 12px 0px 7px 1px #FFF;
+    filter: drop-shadow(0px 0px 21px #FFF);
+    height: 5em;
+    position: absolute;
+    right: 9%;
+    top: 15%;
+    width: 5em;
+    z-index: 100;
+}
+
+.tamanho-0{
+    height: var(--tamanho0);
+    width: var(--tamanho0);
+    z-index: 1;
+}
+
+.tamanho-1{
+    height: var(--tamanho1);
+    width: var(--tamanho1);
+    z-index: 2;
+}
+
+.tamanho-2{
+    height: var(--tamanho2);
+    width: var(--tamanho2);
+    z-index: 3;
+}
+
+.tamanho-3{
+    height: var(--tamanho3);
+    width: var(--tamanho3);
+    z-index: 4;
+}
+
+.tamanho-4{
+    height: var(--tamanho4);
+    width: var(--tamanho4);
+    z-index: 5;
+}
+
+
+.tamanho-5{
+    height: var(--tamanho5);
+    opacity: 1;
+    width: var(--tamanho5);
+    z-index: 6;
+}
+
+.tamanho-6{
+    height: var(--tamanho6);
+    opacity: 1;
+    width: var(--tamanho6);
+    z-index: 7;
+}
+
+
+@keyframes reluzindo{
+    
+    0%{
+        height: 100%;
+        opacity: 1;
+        width: 100%;
+    }
+    33%{
+        height: 95%;
+        opacity: .4;
+        width: 95%;
+    }
+    100%{
+        height: 100%;
+        opacity: 1;
+        width: 100%;
+    }
+}
+
+@keyframes caindo {
+    20%{
+        right: 110%;
+        top: 70%;
+    }
+    100%{
+        right: 110%;
+        top: 70%;
+    }
+}
+
+@media screen and (max-width: 900px){
+    html{
+        font-size: 8px;
+    }
+}
+
+@media screen and (max-width: 600px){
+    html{
+        font-size: 7px;
+    }
+    .estrela-cadente__principal{
+        transform: rotate(-36deg);
+    }
+}
